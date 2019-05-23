@@ -8,5 +8,11 @@
         <p></p>
         <p style="color: #828282; "><font size="-1"> :{{ text.date }} </font></p>
     </div>
+
 {% endfor %}
+<br>
+   <br>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+       <button type="submit" class="save btn btn-default">Save</button>
 {% endblock %}

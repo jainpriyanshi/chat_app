@@ -12,6 +12,9 @@ def forum_page(request):
 			text.author = request.user
 			text.date = timezone.now()
 			text.save()
+			form=PostForm()
+			return render(request,'text/forum_page.html',{'texts': texts , 'form' :form})
+
 	else:
 		form=PostForm()
 	return render(request,'text/forum_page.html',{'texts': texts , 'form' :form})
