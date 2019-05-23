@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from django.utils import timezone
 from .models import Text
 from .forms import PostForm
@@ -13,8 +13,7 @@ def forum_page(request):
 			text.date = timezone.now()
 			text.save()
 			form=PostForm()
-			return render(request,'text/forum_page.html',{'texts': texts , 'form' :form})
-
+			return redirect('forum_page')
 	else:
 		form=PostForm()
 	return render(request,'text/forum_page.html',{'texts': texts , 'form' :form})
