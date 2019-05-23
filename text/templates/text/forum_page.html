@@ -1,0 +1,12 @@
+{% extends 'text/base.html' %} 
+{% block content %}
+ <br >
+{% for text in texts %}
+    <div>
+        
+        <p> <b>{{text.author}}</b> : {{ text.message}}</p>
+        <p></p>
+        <p style="color: #828282; "><font size="-1"> :{{ text.date }} </font></p>
+    </div>
+{% endfor %}
+{% endblock %}

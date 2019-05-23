@@ -1,0 +1,17 @@
+from django.shortcuts import render
+from django.utils import timezone
+from .models import Text
+from .forms import PostForm
+
+def forum_page(request):
+	texts = Text.objects.filter(date__lte=timezone.now()).order_by('date')
+	if request.method == "POST":
+		form=PostForm(request.POST)
+		if form.is_valid():
+			text= form.save(commit=False)
+			text.author = request.user
+			text.date = timezone.now()
+			text.save()
+	else:
+		form=PostForm()
+	return render(request,'text/forum_page.html',{'texts': texts , 'form' :form})
