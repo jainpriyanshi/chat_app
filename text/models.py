@@ -15,3 +15,13 @@ class Text(models.Model):
 
     def __str__(self):
         return self.message
+
+class Profile(models.Model):
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    motto = models.CharField(max_length=100 )
+
+    def post(self):
+        self.save()
+
+    def __str__(self):
+        return self.message

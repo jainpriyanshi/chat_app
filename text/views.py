@@ -1,7 +1,7 @@
 from django.shortcuts import render , redirect
 from django.utils import timezone
-from .models import Text
-from .forms import PostForm
+from .models import Text , Profile
+from .forms import PostForm 
 
 def forum_page(request):
 	texts = Text.objects.filter(date__lte=timezone.now()).order_by('date')
