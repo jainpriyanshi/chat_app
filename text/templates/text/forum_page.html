@@ -2,11 +2,11 @@
 
 {% block content %}
  <br >
- <h1> My Forum </h1>  <hr>
+ <h1><pre>    My Forum </pre> </h1>  <hr>
 {% for text in texts %}
     <div>
         
-        <p> <b>{{text.author}}</b> : {{ text.message}}</p>
+        <p> <b> {{text.author}}</b> : {{ text.message}}</p>
         <p></p>
         <p style="color: #828282; "><font size="-1"> :{{ text.date }} </font></p>
     </div>
@@ -16,5 +16,5 @@
    <br>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
-       <button type="submit" class="save btn btn-default">Save</button>
+       <button float =right type="submit" class="save btn btn-default">Save</button>
 {% endblock %}
