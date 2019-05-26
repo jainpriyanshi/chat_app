@@ -7,7 +7,11 @@
     <div>
         
         <p> <b> {{text.author}}</b> : {{ text.message}}</p>
-        <p></p>
+        
+        {% if text.img %}
+         <img src="{{ text.img.url }}"  style="height:auto; width: 300px; margin-left : 10px;" /> 
+        {% endif %}
+  
         <p style="color: #828282; "><font size="-1"> :{{ text.date }} </font></p>
     </div>
 
